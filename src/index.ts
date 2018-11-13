@@ -184,7 +184,6 @@ export namespace fsm {
       })
     }
 
-    // noinspection JSUnusedGlobalSymbols
     setState (newState: T) {
       this.checkTransition(newState)
       this.log.debug(`State : ${this._state} --> ${newState}`)

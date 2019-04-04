@@ -125,7 +125,7 @@ export namespace fsm {
 						try {
 							listener.callBack(fromState, toState)
 						} catch (e) {
-							this.log.warn('Uncaught error in listener :' + e)
+							this.log.error('Uncaught error in listener', e)
 						}
 					} else {
 						// Remove inactive listener

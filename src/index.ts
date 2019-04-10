@@ -298,7 +298,37 @@ export namespace fsm {
 			return descriptor
 		}
 	}
-
+	/*
+			Method annotator. Throw an error if the state when the method is called
+			is one of the given states
+		*/
+	export function CheckStateNotIn(states: State[], message?: string) {
+		return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+			let originalMethod: any
+			if (descriptor.value) {
+				originalMethod = descriptor.value
+				descriptor.value = function() {
+					const context = this as StateMachine<any>
+					if (states.indexOf(context.state) === -1) {
+						return originalMethod.apply(context, arguments)
+					} else {
+						throw new Error(message || 'Illegal execution of ' + propertyKey + ' : State should not be one of  ' + states)
+					}
+				}
+			} else if (descriptor.get) {
+				const originalGetter = descriptor.get
+				descriptor.get = function() {
+					const context = this as StateMachine<any>
+					if (states.indexOf(context.state) === -1) {
+						return originalGetter.apply(context, arguments)
+					} else {
+						throw new Error(message || 'Illegal execution of ' + propertyKey + ' : State should not be one of these states:  ' + states)
+					}
+				}
+			}
+			return descriptor
+		}
+	}
 	/*
 			Method annotator. Skip the method execution if the state when the method is called
 			is different from the given state

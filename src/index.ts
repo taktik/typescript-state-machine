@@ -193,6 +193,14 @@ export namespace fsm {
 			this.invokeAllTransitionListeners(oldState, newState)
 		}
 
+		/**
+		 * Verify if the currentState is the same state
+		 * @param state
+		 */
+		isSameState(state: T): Boolean {
+			return state.label === this.state.label
+		}
+
 		private checkTransition(newState: T) {
 			if (!this.canGoToState(newState)) {
 				throw new Error('Invalid transition from ' + this._state + ' to ' + newState)

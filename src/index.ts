@@ -197,16 +197,8 @@ export namespace fsm {
 		 * Verify if the currentState is the same state
 		 * @param state
 		 */
-		currentStateIs(state: T) {
+		isSameState(state: T): Boolean {
 			return state.label === this.state.label
-		}
-
-		/**
-		 * Verify if the currentState isn't the same state
-		 * @param state
-		 */
-		currentStateIsNot(state: T) {
-			return state.label !== this.state.label
 		}
 
 		private checkTransition(newState: T) {

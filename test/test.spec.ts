@@ -25,7 +25,7 @@ describe('currentS',  () => {
     //  */
     it('CurrentState is stopped', () => {
         stateMachine.setState(states.STOPPED)
-        assert.isTrue(stateMachine.currentStateIs(states.STOPPED))
+        assert.isTrue(stateMachine.isSameState(states.STOPPED))
     })
 
     // /**
@@ -33,7 +33,7 @@ describe('currentS',  () => {
     //  */
     it('CurrentState is Playing', () => {
         stateMachine.setState(states.PLAYING)
-        assert.isTrue(stateMachine.currentStateIs(states.PLAYING))
+        assert.isTrue(stateMachine.isSameState(states.PLAYING))
     })
 
     // /**
@@ -41,7 +41,7 @@ describe('currentS',  () => {
     //  */
     it('CurrentState is not Playing', () => {
         stateMachine.setState(states.STOPPED)
-        assert.isTrue(stateMachine.currentStateIsNot(states.PLAYING))
+        assert.isFalse(stateMachine.isSameState(states.PLAYING))
     })
 
     // /**
@@ -49,6 +49,6 @@ describe('currentS',  () => {
     //  */
     it('CurrentState is not Stopped', () => {
         stateMachine.setState(states.PLAYING)
-        assert.isTrue(stateMachine.currentStateIsNot(states.STOPPED))
+        assert.isFalse(stateMachine.isSameState(states.STOPPED))
     })
 })

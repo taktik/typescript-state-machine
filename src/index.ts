@@ -98,11 +98,11 @@ export namespace fsm {
 			}
 		}
 
-		protected inOneOfStates(states: T[]): boolean {
+		inOneOfStates(states: T[]): boolean {
 			return (states.indexOf(this._state) !== -1)
 		}
 
-		protected inState(state: T): boolean {
+		inState(state: T): boolean {
 			return this._state === state
 		}
 
@@ -193,14 +193,14 @@ export namespace fsm {
 			this.invokeAllTransitionListeners(oldState, newState)
 		}
 
+		canGoToState(newState: T): boolean {
+			return this.validTransitions[this._state.label].indexOf(newState) !== -1
+		}
+
 		private checkTransition(newState: T) {
 			if (!this.canGoToState(newState)) {
 				throw new Error('Invalid transition from ' + this._state + ' to ' + newState)
 			}
-		}
-
-		protected canGoToState(newState: T): boolean {
-			return this.validTransitions[this._state.label].indexOf(newState) !== -1
 		}
 	}
 

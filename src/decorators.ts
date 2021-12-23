@@ -6,12 +6,13 @@ import { State, StateMachineImpl } from './stateMachine'
 	is different from the given state
 */
 export function CheckStateIs(state: State, message?: string) {
-	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
 		const originalMethod = descriptor.value as (...args: unknown[]) => unknown
 
-		return function (this: StateMachine<IState>, ...args: unknown[]) {
+		descriptor.value = function (this: StateMachine<IState>, ...args: unknown[]) {
 			if (this.state === state) {
-				originalMethod.apply(this, args)
+				return originalMethod?.apply(this, args)
 			} else {
 				throw new Error(
 					message ||
@@ -19,6 +20,8 @@ export function CheckStateIs(state: State, message?: string) {
 				)
 			}
 		}
+
+		return descriptor
 	}
 }
 
@@ -27,7 +30,8 @@ export function CheckStateIs(state: State, message?: string) {
 	is not one of the given states
 */
 export function CheckStateIn(states: State[], message?: string) {
-	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
 		if (descriptor.value) {
 			const originalMethod = descriptor.value as (...args: unknown[]) => unknown
 
@@ -65,7 +69,8 @@ export function CheckStateIn(states: State[], message?: string) {
 	is one of the given states
 */
 export function CheckStateNotIn(states: State[], message?: string) {
-	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
 		if (descriptor.value) {
 			const originalMethod = descriptor.value as (...args: unknown[]) => unknown
 
@@ -97,23 +102,27 @@ export function CheckStateNotIn(states: State[], message?: string) {
 		return descriptor
 	}
 }
+
 /*
 	Method annotator. Skip the method execution if the state when the method is called
 	is different from the given state
 */
 export function AssumeStateIs(state: State) {
-	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
 		const originalMethod = descriptor.value as (...args: unknown[]) => unknown
 
-		return function (this: StateMachineImpl<IState>, ...args: unknown[]) {
+		descriptor.value = function (this: StateMachineImpl<IState>, ...args: unknown[]) {
 			if (this.state === state) {
-				originalMethod.apply(this, args)
+				return originalMethod?.apply(this, args)
 			} else {
 				this.log?.warn(
 					`Skipping execution of ${propertyKey} : State should be ${state.toString()} but state = ${this.state.toString()}`
 				)
 			}
 		}
+
+		return descriptor
 	}
 }
 
@@ -122,17 +131,19 @@ export function AssumeStateIs(state: State) {
 	is the same as the given state
 */
 export function AssumeStateIsNot(state: State) {
-	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
 		const originalMethod = descriptor.value as (...args: unknown[]) => unknown
 
-		return function (this: StateMachineImpl<IState>, ...args: unknown[]) {
+		descriptor.value = function (this: StateMachineImpl<IState>, ...args: unknown[]) {
 			if (this.state !== state) {
-				originalMethod.apply(this, args)
+				return originalMethod?.apply(this, args)
 			} else {
 				this.log?.warn(
 					`Skipping execution of ${propertyKey} : State should be different from ${state.toString()}`
 				)
 			}
 		}
+		return descriptor
 	}
 }

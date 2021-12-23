@@ -14,19 +14,12 @@
 		"noImplicitThis": true,
 		// "noImplicitAny": true,
 		"allowSyntheticDefaultImports": true,
-		"lib": [
-			"es2017",
-			"es6",
-			"es5",
-			"dom"
-		],
+		"lib": ["es2017", "es6", "es5", "dom"],
 		"sourceMap": true,
 		"declaration": true,
 		/* Generates corresponding '.d.ts' file. */
 		"outDir": "./dist",
 		"baseUrl": "./"
 	},
-	"files": [
-		"./src/index.ts"
-	]
+	"include": ["./src"]
 }

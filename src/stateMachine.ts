@@ -18,6 +18,10 @@ export class StateMachineImpl<T extends State> implements StateMachine<T> {
 		return this._state
 	}
 
+	setLogger(logger: Logger) {
+		this.log = logger
+	}
+
 	onEnterState(state: T, callBack: (from: T, to: T) => void): ListenerRegistration {
 		return this.addTransitionListener(callBack, undefined, state)
 	}

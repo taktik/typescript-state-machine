@@ -13,7 +13,7 @@ const transitions = {
 	[doneState.label]: [],
 }
 
-export class DecoratorsTest extends StateMachineImpl<State> {
+export class TestStateMachine extends StateMachineImpl<State> {
 	log = {
 		debug: console.debug,
 		info: console.info,
@@ -21,6 +21,7 @@ export class DecoratorsTest extends StateMachineImpl<State> {
 		error: console.error,
 		fatal: console.error,
 	}
+
 	constructor() {
 		super(
 			[initState, idleState, workingState, doneState],

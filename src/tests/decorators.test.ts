@@ -1,10 +1,10 @@
 /* globals expect, test */
 
-import { DecoratorsTest, doneState, idleState, workingState } from './common'
+import { TestStateMachine, doneState, idleState, workingState } from './common'
 
 
 describe('Decorators', () => {
-	const d = new DecoratorsTest()
+	const d = new TestStateMachine()
 
 	test('init state', () => {
 		expect(d.throwIfNotInit()).toBe(true)

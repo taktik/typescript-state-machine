@@ -1,3 +1,4 @@
+import { LogLevel } from '@taktik/generic-logger'
 import { AssumeStateIs, AssumeStateIsNot, CheckStateIn, CheckStateIs, CheckStateNotIn } from '../decorators'
 import { State, StateMachineImpl } from '../stateMachine'
 
@@ -15,11 +16,21 @@ const transitions = {
 
 export class TestStateMachine extends StateMachineImpl<State> {
 	log = {
+		trace: console.trace,
 		debug: console.debug,
 		info: console.info,
 		warn: console.warn,
 		error: console.error,
 		fatal: console.error,
+		isLevelEnabled() {
+			return true
+		},
+		getLevel() {
+			return LogLevel.DEBUG
+		},
+		setLevel() {
+			// empty
+		}
 	}
 
 	constructor() {

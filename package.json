@@ -1,6 +1,6 @@
 {
-	"name": "typescript-state-machine",
-	"version": "0.9.7",
+	"name": "@taktik/typescript-state-machine",
+	"version": "0.9.8",
 	"description": "",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -20,6 +20,9 @@
 		"eslint": "eslint src/*"
 	},
 	"homepage": "https://github.com/taktik/typescript-state-machine#readme",
+	"dependencies": {
+		"@taktik/generic-logger": "1.0.1"
+	},
 	"devDependencies": {
 		"@types/jest": "27.0.3",
 		"@typescript-eslint/eslint-plugin": "5.7.0",

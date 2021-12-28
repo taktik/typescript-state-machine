@@ -47,13 +47,3 @@ export interface StateMachine<T extends IState> {
 
 	waitUntilEnteredOneOf(states: [T]): Promise<T>
 }
-
-export type LoggingFunction = (...args: any[]) => void
-
-export type Logger = {
-	debug: LoggingFunction
-	info: LoggingFunction
-	warn: LoggingFunction
-	error: LoggingFunction
-	fatal: LoggingFunction
-}

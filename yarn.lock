@@ -535,12 +535,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@taktik/generic-logger@1.0.1":
-  version "1.0.1"
-  resolved "https://npm.taktik.be/repository/npm/@taktik/generic-logger/-/generic-logger-1.0.1.tgz#ea2725e0726a3e35f8bbf8b68a9be324a1906afc"
-  integrity sha512-AJbdRJxD0l5eJTLXWGkp+SEpqmnmlMT0ThDEK9nReSR876KImyirdQOb/grLEXhxPXLsuLUM6VuBtEi/akYyaw==
-  dependencies:
-    log4javascript "1.4.16"
+"@taktik/generic-logger@1.0.2":
+  version "1.0.2"
+  resolved "https://npm.taktik.be/repository/npm/@taktik/generic-logger/-/generic-logger-1.0.2.tgz#f0e98d63df5b644a205246997710e89e0fc60e55"
+  integrity sha512-cASHry0brG1q9FKgZ3ynrEmETPQIz/Wl2VXIhFX7Mpp78qzKc6qY7fJkrG8Nrz3WEhHg0FFfeEFRbgjos7Kz3Q==
 
 "@tootallnate/once@1":
   version "1.1.2"
@@ -2420,11 +2418,6 @@ log-update@^4.0.0:
     cli-cursor "^3.1.0"
     slice-ansi "^4.0.0"
     wrap-ansi "^6.2.0"
-
-log4javascript@1.4.16:
-  version "1.4.16"
-  resolved "https://registry.yarnpkg.com/log4javascript/-/log4javascript-1.4.16.tgz#cc6cbcf11fca537a19783df246a1d581b3ab3054"
-  integrity sha512-LaKmdz/+Ix/np+LNrh0hi3dapZUzQ80EGQ6AqnHja5YZVLQ/++rjJbABJ96IICHDsnlsn7hGx1hfMIuUt0vjog==
 
 lru-cache@^6.0.0:
   version "6.0.0"

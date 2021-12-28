@@ -1,6 +1,6 @@
 {
 	"name": "@taktik/typescript-state-machine",
-	"version": "0.9.8",
+	"version": "0.9.9",
 	"description": "",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -21,7 +21,7 @@
 	},
 	"homepage": "https://github.com/taktik/typescript-state-machine#readme",
 	"dependencies": {
-		"@taktik/generic-logger": "1.0.1"
+		"@taktik/generic-logger": "1.0.2"
 	},
 	"devDependencies": {
 		"@types/jest": "27.0.3",

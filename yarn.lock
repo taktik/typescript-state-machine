@@ -599,7 +599,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^27.0.3":
+"@types/jest@27.0.3":
   version "27.0.3"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.3.tgz#0cf9dfe9009e467f70a342f0f94ead19842a783a"
   integrity sha512-cmmwv9t7gBYt7hNKH5Spu7Kuu/DotGa+Ff+JGRKZ4db5eh8PnKS4LuebJ3YLUoyOyIHraTGyULn23YtEAm0VSg==
@@ -1273,9 +1273,9 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^8.3.0:
+eslint-config-prettier@8.3.0:
   version "8.3.0"
-  resolved "https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
 eslint-scope@^5.1.1:
@@ -1533,6 +1533,11 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
+
+generic-logger-typings@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/generic-logger-typings/-/generic-logger-typings-1.0.0.tgz#4336ba198bc4c3e5293736e1f89bd647a691cb55"
+  integrity sha512-UvlcsBEa7J+KGOuCdtIPG9VSoktVxUFgUXYr/oNkWODI1ERYLGCiDfVB9tZBeHNxaIyzFX94vofcyoCaQ8UG1A==
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
@@ -2234,7 +2239,7 @@ jest-worker@^27.4.5:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^27.4.5:
+jest@27.4.5:
   version "27.4.5"
   resolved "https://registry.yarnpkg.com/jest/-/jest-27.4.5.tgz#66e45acba44137fac26be9d3cc5bb031e136dc0f"
   integrity sha512-uT5MiVN3Jppt314kidCk47MYIRilJjA/l2mxwiuzzxGUeJIvA8/pDaJOAX5KWvjAo7SCydcW0/4WEtgbLMiJkg==
@@ -3070,7 +3075,7 @@ tr46@^2.1.0:
   dependencies:
     punycode "^2.1.1"
 
-ts-jest@^27.1.2:
+ts-jest@27.1.2:
   version "27.1.2"
   resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-27.1.2.tgz#5991d6eb3fd8e1a8d4b8f6de3ec0a3cc567f3151"
   integrity sha512-eSOiJOWq6Hhs6Khzk5wKC5sgWIXgXqOCiIl1+3lfnearu58Hj4QpE5tUhQcA3xtZrELbcvAGCsd6HB8OsaVaTA==

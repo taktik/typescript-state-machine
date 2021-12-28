@@ -20,6 +20,9 @@
 		"eslint": "eslint src/*"
 	},
 	"homepage": "https://github.com/taktik/typescript-state-machine#readme",
+	"dependencies": {
+		"generic-logger-typings": "1.0.0"
+	},
 	"devDependencies": {
 		"@types/jest": "27.0.3",
 		"@typescript-eslint/eslint-plugin": "5.7.0",

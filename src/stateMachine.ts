@@ -1,4 +1,5 @@
-import { IState, ListenerRegistration, Logger, StateMachine, Transitions } from './typings'
+import type { Logger } from 'generic-logger-typings'
+import { IState, ListenerRegistration, StateMachine, Transitions } from './typings'
 
 export class StateMachineImpl<T extends State> implements StateMachine<T> {
 	readonly states: T[]

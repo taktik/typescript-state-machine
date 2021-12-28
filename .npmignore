@@ -9,4 +9,7 @@
 .eslintrc
 .lintstagedrc.json
 .nvmrc
+.editorconfig
+tsconfig*.json
 jest.config.js
+/src/

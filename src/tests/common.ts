@@ -1,5 +1,12 @@
 import { LogLevel } from 'generic-logger-typings'
-import { AssumeStateIs, AssumeStateIsNot, CheckStateIn, CheckStateIs, CheckStateNotIn } from '../decorators'
+import {
+	AssumeStateIs, AssumeStateIsIn,
+	AssumeStateIsNot,
+	AssumeStateIsNotIn,
+	CheckStateIn,
+	CheckStateIs,
+	CheckStateNotIn
+} from '../decorators'
 import { State, StateMachineImpl } from '../stateMachine'
 
 export const initState = new State('INIT')
@@ -63,6 +70,16 @@ export class TestStateMachine extends StateMachineImpl<State> {
 
 	@AssumeStateIsNot(workingState)
 	trueIfNotWorking() {
+		return true
+	}
+
+	@AssumeStateIsNotIn([workingState, doneState])
+	trueIfNotWorkingAndDone() {
+		return true
+	}
+
+	@AssumeStateIsIn([workingState, doneState])
+	trueIfWorkingOrDone() {
 		return true
 	}
 }

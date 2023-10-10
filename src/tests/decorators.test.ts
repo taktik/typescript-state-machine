@@ -22,6 +22,7 @@ describe('Decorators', () => {
 		expect(() => d.throwOnInitOrIdle()).toThrow()
 		expect(d.trueIfDone()).toBe(undefined)
 		expect(d.trueIfNotWorking()).toBe(true)
+		expect(d.trueIfNotWorkingAndDone()).toBe(true)
 	})
 
 	test('working state', () => {
@@ -32,6 +33,7 @@ describe('Decorators', () => {
 		expect(d.throwOnInitOrIdle()).toBe(true)
 		expect(d.trueIfDone()).toBe(undefined)
 		expect(d.trueIfNotWorking()).toBe(undefined)
+		expect(d.trueIfWorkingOrDone()).toBe(true)
 	})
 
 	test('done state', () => {
@@ -42,5 +44,6 @@ describe('Decorators', () => {
 		expect(d.throwOnInitOrIdle()).toBe(true)
 		expect(d.trueIfDone()).toBe(true)
 		expect(d.trueIfNotWorking()).toBe(true)
+		expect(d.trueIfWorkingOrDone()).toBe(true)
 	})
 })

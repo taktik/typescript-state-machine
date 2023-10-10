@@ -147,3 +147,50 @@ export function AssumeStateIsNot(state: State) {
 		return descriptor
 	}
 }
+
+
+/*
+	Method annotator. Skip the method execution if the state when the method is called
+	is different from the given states
+*/
+export function AssumeStateIsIn(states: State[]) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
+		const originalMethod = descriptor.value as (...args: unknown[]) => unknown
+
+		descriptor.value = function (this: StateMachineImpl<IState>, ...args: unknown[]) {
+			if (states.includes(this.state)) {
+				return originalMethod?.apply(this, args)
+			} else {
+				this.log?.warn(
+					`Skipping execution of ${propertyKey} : State should be ${states.map(state => state.toString()).join('-')} but state = ${this.state.toString()}`
+				)
+			}
+		}
+
+		return descriptor
+	}
+}
+
+/*
+	Method annotator. Skip the method execution if the state when the method is called
+	is the same as the given state
+*/
+export function AssumeStateIsNotIn(states: State[]) {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	return function (target: unknown, propertyKey: string, descriptor: PropertyDescriptor): any {
+		const originalMethod = descriptor.value as (...args: unknown[]) => unknown
+
+		descriptor.value = function (this: StateMachineImpl<IState>, ...args: unknown[]) {
+			if (!states.includes(this.state)) {
+				return originalMethod?.apply(this, args)
+			} else {
+				this.log?.warn(
+					`Skipping execution of ${propertyKey} : State should be different from ${states.map(state => state.toString()).join('-')}`
+				)
+			}
+		}
+		return descriptor
+	}
+}
+
